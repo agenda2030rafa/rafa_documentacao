@@ -1,0 +1,9 @@
+dados brutos
+1) hotsite = tabela oriunda do hotsite, contém os processos e os respectivos ods da agenda 2030
+
+dados manipulados - produtos de dados brutos e manipulação em R
+1) df = base contendo os IDs das peças, seus textos limpos e a respectiva
+marcação de ODS
+
+2) teste_ods = base contendo os IDs de teste, as marcações preditas e as 
+marcações reais de ODS

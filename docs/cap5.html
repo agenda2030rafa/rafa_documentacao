@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Abordagens e estratégias de classificação</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./cap6.html" rel="next">
+<link href="./cap4.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Abordagens e estratégias de classificação</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./" class="sidebar-logo-link">
+      <img src="./logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/agenda2030rafa" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ambiente de desenvolvimento</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Entrada, leitura e limpeza dos dados em PDF</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metadados e manipulação do painel Agenda 2030 no STF</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap5.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Abordagens e estratégias de classificação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aplicativo</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Códigos</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#abordagem-multilabel" id="toc-abordagem-multilabel" class="nav-link active" data-scroll-target="#abordagem-multilabel"> <span class="header-section-number">5.1</span> Abordagem Multilabel</a></li>
+  <li><a href="#similaridade" id="toc-similaridade" class="nav-link" data-scroll-target="#similaridade"> <span class="header-section-number">5.2</span> Similaridade</a></li>
+  <li><a href="#abordagem-binária-ods-16-8-10-e-3" id="toc-abordagem-binária-ods-16-8-10-e-3" class="nav-link" data-scroll-target="#abordagem-binária-ods-16-8-10-e-3"> <span class="header-section-number">5.3</span> Abordagem binária – ODS 16, 8, 10 e 3</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Abordagens e estratégias de classificação</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="abordagem-multilabel" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="abordagem-multilabel"><span class="header-section-number">5.1</span> Abordagem Multilabel</h2>
+<p>A primeira estratégia utilizada para classificação foi <em>multilabel</em>. Isso significa que cada processo avaliado pode ter todas as etiquetas (17 ODS) ou nenhuma delas e este tipo de classificação necessita de muitos dados. Considerando cada combinação possível de etiquetas como um rótulo individual, teríamos cerca de 131.071 etiquetas possíveis para menos de 3 mil processos avaliados pelos especialistas do tribunal, ou seja, teríamos mais categorias do que dados e isso é um enorme problema para modelos de previsão que envolvem treinamento e aprendizagem. Uma alternativa elegante para contornar este problema é dada pela utilização de modelos com probabilidade de pertencimento. Modelos deste tipo, após o treinamento, devolvem não uma coleção de etiquetas, mas uma probabilidade de cada etiqueta ser utilizada no registro que se quer prever a classificação.</p>
+<p>Para tal tarefa, uma possibilidade é utilizar o <em>framework StarSpace</em> do <em>Facebook</em>, cuja implementação em <em>R</em> pode ser encontrada no pacote <code>ruimtehol</code>. O <em>StarSpace</em> é, fundamentalmente, uma máquina de gerar <em>embeddings</em>. <em>Embeddings</em> são representações vetoriais de objetos quaisquer em espaços (vetoriais) dotados de distância. No caso das palavras, bons <em>embeddings</em> possuem vetores parecidos para palavras de significado próximo em linguagem natural, considerando o contexto de utilização. A implementação em <em>R</em> do <em>StarSpace</em> inclui algoritmos de similaridade e redes neurais, que, no caso de problemas <em>multilabel</em>, geram saídas com probabilidade de pertencimento. Teoricamente, o <em>StarSpace</em> mostra as <em>n</em> etiquetas mais prováveis para um determinado texto, sendo <em>n</em> um número arbitrário contido no intervalo entre 1 e o total de etiquetas. Neste caso, 17. Há um extrato de código no arquivo <em>zip</em> chamado <em>starspace</em>, com um exemplo de utilização da abordagem. A abordagem até gerou bons resultados, mas esbarrou na limitação dos próprios dados e apresentou um enorme problema no ODS 16. Apesar do <em>StarSpace</em> produzir <em>embeddings</em> robustos, classificar com um único algoritmo todos os ODS se mostrou uma tarefa muito pesada para o método, principalmente nos objetivos mais gerais, como no caso do décimo sexto, relacionado à justiça, paz e instituições eficazes. Maiores informações sobre o <em>framework</em> podem ser encontradas em neste <a href="https://github.com/facebookresearch/StarSpace"><em>link</em></a>.</p>
+</section>
+<section id="similaridade" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="similaridade"><span class="header-section-number">5.2</span> Similaridade</h2>
+<p>A consequência natural da utilização do <em>framework StarSpace</em> é um estudo sobre similaridade de processos judiciais. Algumas iniciativas do judiciário utilizam similaridade para agrupar processos parecidos com diferentes propósitos, a exemplo da Berna (TJGO) e Athos (STJ). A iniciativa se ocupou de empregar similaridade com um objetivo de classificação posterior. Na prática, a RAFA calculava a similaridade entre um novo processo candidato a receber etiquetas de ODS e as peças jurídicas da base já etiquetada, com objetivo de replicar a etiqueta do processo mais parecido.</p>
+<p>Extratos de código relacionados a atividade de similaridade estão disponíveis no <em>notebook Python</em>. Maiores informações sobre similaridade podem ser encontradas neste <a href="https://newscatcherapi.com/blog/ultimate-guide-to-text-similarity-with-python"><em>link</em></a>. A continuidade desta abordagem se tornou difícil pela heterogeneidade dos textos (petições em especial) e pela falta de textos etiquetados para a maioria dos ODS. Uma forma elegante de contornar este problema envolve quebrar o problema <em>multilabel</em> em problemas menores binários e será melhor explicada na seção seguinte.</p>
+</section>
+<section id="abordagem-binária-ods-16-8-10-e-3" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="abordagem-binária-ods-16-8-10-e-3"><span class="header-section-number">5.3</span> Abordagem binária – ODS 16, 8, 10 e 3</h2>
+<p>Quebrar o problema <em>multilabel</em> em problemas binários menores foi uma saída elegante que permitiu tratar cada ODS de forma individual, separando aqueles com número suficiente de processos daquelas com registros insuficientes para aprendizagem de máquina; Também permitiu ajustar um modelo para cada ODS, escolhendo os algoritmos candidatos em uma coleção maior de modelos. Como consequência de haver mais opções de modelos, surgiram também mais opções de <em>ensemble</em>, abordagem que reúne vários modelos e define o rótulo (etiqueta) por votação simples ou ponderada. Alguns Objetivos de Desenvolvimento Sustentável possuem poucos processos etiquetados, o que naturalmente impede que máquinas aprendam a classificá-los usando poucos exemplos. Se existem, por exemplo, 3 mil processos classificados e apenas 3 etiquetados em um determinado ODS, a máquina pode classificar nenhuma peça em tal ODS e ainda assim performar bem em termos de acurácia. Por este motivo, foram selecionados apenas os ODS 16, 8, 10 e 3, respectivamente os Objetivos de Desenvolvimento Sustentável com maiores números de entrada. Considerando cada um destes 4 ODS como um problema único de aprendizagem, a iniciativa RAFA alcançou resultados satisfatórios usando redes neurais. O fluxo de classificar processos usando a abordagem binária é o centro do projeto em <em>R</em> disponibilizado junto da documentação. Ao contrário da pasta <em>zip</em> que contém vários <em>scripts</em> para tarefas não conectadas e sem ordem definida, o projeto <em>R</em> é ponta a ponta, ou seja, começa com a leitura dos dados e termina com as classificações via redes neurais. A referência natural para usar redes neurais em linguagem <em>R</em> é Hvitfeldt e Silge (2021)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, livro base para o ajuste dos modelos utilizados no projeto <em>R</em>, cujos códigos dependem da conexão entre <em>R</em> e <em>Python</em> explicada na <a href="cap2.html#sec-22"><span>Seção&nbsp;2.2</span></a>. A iniciativa também usa redes neurais ajustadas através do pacote <code>Pytorch</code>, disponíveis no <em>notebook Python</em>.</p>
+<p>Podem ser utilizadas diversas arquiteturas de redes para NLP, em especial RNNs e LSTM<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> e existem formas diferentes de processamento inicial do texto a depender da arquitetura escolhida. A principal etapa de pré-processamento é a de <em>embedding</em>, que se concentra na transformação de textos em vetores de números. Máquinas não processam textos nativamente, sendo necessário um passo de codificação, para transformar coleções de palavras em conjuntos de números. Existem diversas formas de <em>embedding</em>, sendo as mais simples baseadas em dicionário (conjunto de todas as palavras de um texto limpo) e as mais sofisticadas baseadas em contexto. Na construção dos modelos para predição de ODS foram utilizadas as seguintes tecnologias de <em>embedding</em>: <em>one-hot encoding</em>, <em>bag of words</em> (BoW), TF-IDF e BERT.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>As métricas tradicionais de aprendizagem de máquina são a acurácia, sensibilidade, especificidade, precisão e F-score. O quadro abaixo apresenta cada uma e suas respectivas fórmulas:</p>
+<p><img src="img/fig-18.png" class="img-fluid"></p>
+<p>Em que: <br> <code>VP</code> = Verdadeiros positivos;<br> <code>FN</code> = Falsos negativos;<br> <code>FP</code> = Falsos positivos;<br> <code>VN</code> = Verdadeiros negativos;<br> <code>P</code> = Precisão;<br> <code>S</code> = Sensibilidade;<br> <code>N</code> = Total de elementos.</p>
+<p>O uso de redes neurais se justifica pela boa performance nas métricas mais importantes de aprendizagem de máquina:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<caption>Tabela 2 – Métricas RAFA 2030</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> ODS </th>
+   <th style="text-align:right;"> Acurácia (%) </th>
+   <th style="text-align:right;"> Sensibilidade (%) </th>
+   <th style="text-align:right;"> F-Score (%) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> ODS 16 </td>
+   <td style="text-align:right;"> 77,5 </td>
+   <td style="text-align:right;"> 85,3 </td>
+   <td style="text-align:right;"> 69,9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ODS 8 </td>
+   <td style="text-align:right;"> 82,9 </td>
+   <td style="text-align:right;"> 84,1 </td>
+   <td style="text-align:right;"> 79,6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ODS 10 </td>
+   <td style="text-align:right;"> 91,9 </td>
+   <td style="text-align:right;"> 100,0 </td>
+   <td style="text-align:right;"> 30,8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ODS 3 </td>
+   <td style="text-align:right;"> 93,7 </td>
+   <td style="text-align:right;"> 83,3 </td>
+   <td style="text-align:right;"> 74,1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><br></p>
+<p>Com a devida apresentação da etapa de classificação de processos em lotes, cumpre seguir com as explicações referentes ao aplicativo, desenvolvido para apoiar a atividade de classificação com poucas entradas, isto é, um processo por vez, tal qual os servidores do tribunal fazem de maneira manual. Este é o objetivo do capítulo a seguir.</p>
+
+
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p><font size="2.3">HVITFELDT, E.; SILGE, J. <strong>Supervised machine learning for text analysis in R</strong>. Chapman and Hall/CRC, 2021. Disponível em: <a href="https://smltar.com/" class="uri">https://smltar.com/</a>. Acesso em: 21 jul. 2022.</font><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><font size="2.3">Detalhes disponíveis em: <a href="https://www.asimovinstitute.org/neural-network-zoo/" class="uri">https://www.asimovinstitute.org/neural-network-zoo/</a>. Acesso em: 26 jul. 2022.</font><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><font size="2.3">Maiores informações sobre tais métodos podem ser encontradas em <a href="https://cloud.google.com/ai-platform/training/docs/algorithms/bert-start" class="uri">https://cloud.google.com/ai-platform/training/docs/algorithms/bert-start</a> e <a href="https://www.tensorflow.org/text/guide/word_embeddings" class="uri">https://www.tensorflow.org/text/guide/word_embeddings</a>.</font><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./cap4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metadados e manipulação do painel Agenda 2030 no STF</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./cap6.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aplicativo</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Supremo Tribunal Federal - STF</div>   
+  </div>
+</footer>
+
+
+
+</body></html>
