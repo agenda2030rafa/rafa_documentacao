@@ -1,0 +1,9 @@
+# Códigos {.cap7}
+
+Os scripts e arquivos descritos na documentação estão disponíveis nos seguintes `links`:
+
+-   [Notebook python](xx)
+
+-   [Projeto R](xx)
+
+-   [Scripts doc](xx)

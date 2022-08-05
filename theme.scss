@@ -1,0 +1,59 @@
+/*-- scss:defaults --*/
+
+#quarto-sidebar {
+    width: 110% !important;
+    padding-right: 1em !important;
+    color: #ffffff !important;
+}
+
+div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
+    color: #1c98c7 !important;
+}
+
+
+.sidebar-item .chapter-number {
+    color: #fff !important;
+}
+
+div.sidebar-item-container {
+    color: #ffffff !important;
+}
+
+#quarto-content>* {
+    padding-top: 0px;
+    padding-left: 15px;
+}
+
+
+p{
+  text-align: justify;
+}
+
+
+div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
+    background-color: #0f4172 !important;
+}
+
+h1 {
+    margin-top: 0;
+    color: #2d2d2d;
+}
+
+.header-section-number {
+    color: #2d2d2d !important;
+}
+
+.sidebar-logo {
+    max-width: 102% !important;
+    padding-bottom: 0.5rem;
+}
+
+code {
+    font-size: 0.875em;
+    color: #0f4172 !important;
+    background-color: #f9f9fa;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.25rem;
+    word-wrap: break-word;
+}
+

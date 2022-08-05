@@ -1,0 +1,37 @@
+project:
+  type: book
+  output-dir: docs
+  delete_merged_file: true
+
+
+book:
+  logo: logo.png
+  lang: pt
+  sidebar:
+    style: docked
+    border: true
+    background: light
+  search: true
+  page-footer: 
+    left: "Supremo Tribunal Federal - STF" 
+  page-navigation: true
+  repo-url: https://github.com/agenda2030rafa
+  date: "2022/07/20"
+  chapters:
+    - index.qmd
+    - text: "---"
+    - cap2.qmd
+    - cap3.qmd
+    - cap4.qmd
+    - cap5.qmd
+    - cap6.qmd
+    - text: "---"
+    - cap7.qmd
+
+format:
+  html:
+    theme: [spacelab,theme.scss]
+    cover-image: cover.png
+
+editor: visual
+

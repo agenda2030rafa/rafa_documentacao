@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Ambiente de desenvolvimento</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./cap3.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ambiente de desenvolvimento</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./" class="sidebar-logo-link">
+      <img src="./logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/agenda2030rafa" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ambiente de desenvolvimento</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Entrada, leitura e limpeza dos dados em PDF</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metadados e manipulação do painel Agenda 2030 no STF</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Abordagens e estratégias de classificação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aplicativo</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Códigos</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#instalação-local-da-linguagem-r" id="toc-instalação-local-da-linguagem-r" class="nav-link active" data-scroll-target="#instalação-local-da-linguagem-r"> <span class="header-section-number">2.1</span> Instalação local da Linguagem <em>R</em></a></li>
+  <li><a href="#sec-22" id="toc-sec-22" class="nav-link" data-scroll-target="#sec-22"> <span class="header-section-number">2.2</span> Instalação local da distribuição Anaconda <em>Python</em> e conexão com <em>R</em></a></li>
+  <li><a href="#organização-geral-do-projeto-em-linguagem-r-e-dos-notebooks-python" id="toc-organização-geral-do-projeto-em-linguagem-r-e-dos-notebooks-python" class="nav-link" data-scroll-target="#organização-geral-do-projeto-em-linguagem-r-e-dos-notebooks-python"> <span class="header-section-number">2.3</span> Organização geral do projeto em linguagem <em>R</em> e dos <em>notebooks Python</em></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ambiente de desenvolvimento</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>A iniciativa RAFA foi desenvolvida em linguagem <em>R</em> e <em>Python</em>, prioritariamente. Isso significa que, com exceção de alguns poucos passos intermediários, tudo aquilo que será apresentado nesta documentação envolve apoio computacional de alguma linguagem de programação (<em>R</em> ou <em>Python</em>, neste caso). Neste capítulo, serão apresentadas informações sobre a montagem do ambiente, características das máquinas utilizadas no desenvolvimento e versões de softwares e bibliotecas utilizadas, bem como o registro de algumas referências importantes sobre a etapa de conectar as linguagens <em>R</em> e <em>Python</em>.</p>
+<p>O time da iniciativa tem integrantes da área jurídica e do escritório de estatística do tribunal, estes últimos responsáveis pelo desenvolvimento técnico da ferramenta. Os membros da área jurídica são responsáveis pela curadoria dos resultados e pela gestão do projeto Agenda 2030 como um todo. O corpo técnico escolheu usar <em>R</em> e <em>Python</em> pois são as linguagens mais populares para ciência de dados, mas os registros desta documentação podem ser reproduzidos em outras linguagens de programação com algum esforço de código e pesquisa de pacotes/bibliotecas. Outras opções populares são: <em>Scala</em>, para utilização do Ecossistema <em>Hadoop</em>, <em>Julia</em>, <em>Go</em> e <em>C++</em>.</p>
+<p>Dado que <em>Python</em> e <em>R</em> são linguagens populares em ciência de dados, não é difícil encontrar informações e cursos sobre processamento de linguagem natural (NLP) na <em>internet</em>. Reproduzir códigos diretamente de fontes não oficiais, no entanto, pode ser complicado e até limitar o potencial de desenvolvimento. Neste contexto, um possível caminho envolve pesquisar algoritmos e estratégias para resolver a tarefa de interesse em boas plataformas (<em>Towards Data Science</em> e <em>Towards AI</em> do <em>Medium</em>, <em>Kaggle</em> e <em>MachineHack</em>) e partir para análise da documentação oficial dos <em>frameworks</em>/pacotes utilizados, como <em>Tensorflow</em>, <em>Keras</em> e <em>Pytorch</em> em <em>Python</em> ou <em>Quanteda</em> e <em>Text</em> em <em>R</em>. Evidentemente, tais pesquisas não excluem a necessidade de formação. Apesar de todos os membros do escritório de estatística envolvidos na iniciativa possuírem graduação/pós graduação em estatística, houve necessidade de complementar a formação superior com cursos especializados em aprendizagem de máquina, <em>deep learning</em> e inteligência artificial. A estrutura da formação complementar pode ser <em>bootcamp</em>, pós graduação ou até mesmo cursos livres, mas é importante que o conteúdo cubra todo o fluxo de ciência de dados, a saber: entrada de dados – manipulação – visualização – modelos – <em>deploy</em> – apresentação. Nas referências desta documentação existem sugestões de plataformas e cursos.</p>
+<p>A infraestrutura necessária para desenvolvimento de aplicações com <em>deep learning</em> pode ser um entrave, dado que as máquinas precisam de componentes robustos e, em alguns casos, de placas de vídeo dedicadas. Por este motivo, a presente documentação apresentará as soluções em <em>R</em> e <em>Python</em>, sendo que para a última linguagem é possível utilizar o <em>Google Colab</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, que é um serviço de nuvem gratuito hospedado pelo próprio <em>Google</em> centrado em facilitar desenvolvimento de aprendizagem de máquina e inteligência artificial. Trata-se de uma ferramenta que permite misturar código e texto em uma técnica conhecida como <em>notebook</em>. Na prática, o <em>Google Colab</em> permite rodar códigos em <em>Python</em> necessitando apenas de uma conta <em>Google</em> e isso reduz significativamente os problemas com ambiente, dado que o próprio <em>Colab</em> tem vários pacotes/bibliotecas em <em>Python</em> instalados nativamente. A instalação local do <em>Python</em> será feita através da distribuição Anaconda e servirá apenas para conectar <em>Python</em> e <em>R</em>, com objetivo de rodar <em>Tensorflow</em> e <em>Keras</em> através da IDE <em>RStudio</em> tal qual indica a referência Hvitfeldt e Silge (2021)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. A instalação local da linguagem <em>R</em> é simples, com exceção do passo de conexão entre <em>R</em> e <em>Python</em>, que envolve um pouco mais de atenção e será melhor explicado adiante no capítulo.</p>
+<p>Inicialmente, uma máquina pessoal de um membro da iniciativa foi utilizada para desenvolvimento. Trata-se de um <em>notebook</em> com 32gb de RAM, 2T de SSD e processador Intel i9, com placa de vídeo Geforce GTX 1660 Ti. Em um segundo momento, tal <em>notebook</em> foi substituído por uma máquina virtual com os mesmos 32gb de RAM e processador Xeon. Trata-se de uma máquina instanciada apenas para desenvolvimento da ferramenta, com poucos programas instalados e completamente dedicada para processamento dos textos. A seguir serão apresentados aspectos técnicos da instalação local da linguagem <em>R</em> e as versões utilizadas para <em>softwares</em> e pacotes. A documentação seguirá, neste capítulo, com a instalação da distribuição Anaconda <em>Python</em>, conexão <em>Python</em> e <em>R</em> e a apresentação da organização geral do projeto em linguagem <em>R</em> e dos <em>notebooks</em> em <em>Python</em>.</p>
+<section id="instalação-local-da-linguagem-r" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="instalação-local-da-linguagem-r"><span class="header-section-number">2.1</span> Instalação local da Linguagem <em>R</em></h2>
+<p>A instalação local da Linguagem <em>R</em> não envolve muitas dificuldades e pode ser feita através das orientações dadas na página oficial da linguagem. Recomenda-se fortemente o uso da IDE RStudio para desenvolvimento em <em>R</em>. Trata-se de um ambiente integrado de desenvolvimento onde é possível fazer a gestão dos pacotes necessários, <em>upload</em> de bases de dados sem necessidade de usar linha de código e avaliação das saídas de visualização. Também é possível conectar o <em>RStudio</em> ao <em>GitHub</em>, o que permite melhor versionamento dos códigos. A <em>interface</em> da IDE <em>RStudio</em> pode ser vista na <a href="#fig-1">Figura&nbsp;<span>2.1</span></a>:</p>
+<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 2.1: Interface RStudio</figcaption><p></p>
+</figure>
+</div>
+<p>Dentro da IDE <em>RStudio</em> é possível montar projetos em <em>R</em>. Projetos são, em última análise, propostas de organização para códigos em <em>R</em>. Com projetos, pode-se organizar as bases e os <em>scripts</em> em pastas diferentes, bem como incluir documentações e manuais em PDF. Uma das maiores vantagens, para além da organização em si, é a montagem do ambiente. Usando projetos, o ambiente de desenvolvimento fica explicitamente definido como uma pasta do próprio projeto, o que facilita, por exemplo, o uso de caminhos para localizar arquivos específicos. A organização geral do projeto em <em>R</em> da iniciativa RAFA será melhor apresentada em seções subsequentes.</p>
+</section>
+<section id="sec-22" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-22"><span class="header-section-number">2.2</span> Instalação local da distribuição Anaconda <em>Python</em> e conexão com <em>R</em></h2>
+<p>Para ajustar redes neurais em <em>R</em>, uma alternativa possível é conectar a Linguagem <em>Python</em> e assim utilizar os <em>frameworks</em> <em>Keras</em> e <em>Tensorflow</em>, específicos para <em>deep learning</em>. Isso certamente não é simples e existem outros pacotes em <em>R</em> capazes de executar a mesma tarefa, porém não com a mesma performance. O fluxo é simples: Instala-se a distribuição local Anaconda <em>Python</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> e em seguida, as bibliotecas <em>Keras</em> e <em>Tensorflow</em>. Na sequência, instalam-se alguns pacotes em linguagem <em>R</em> para fazer tal conexão, sendo que um ambiente dedicado dentro do Anaconda se faz necessário. A conexão entre <em>R</em> e <em>Python</em> pode ser feita com ajuda das orientações disponíveis neste <a href="https://oindrilasen.com/2021/02/how-to-install-and-import-keras-in-anaconda-jupyter-notebooks/"><em>link</em></a>, mas há um <em>script</em> chamado <code>python_r</code> na pasta <em>zip</em> contendo um passo a passo. Para verificar se a conexão entre <em>R</em> e <em>Python</em> está funcionando corretamente, pode-se chamar uma base de dados interna ao <em>Tensorflow (MNIST)</em>, como mostra o código a seguir:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregar pacotes</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(keras)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tensorflow)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo - Dataset MNIST</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mnist <span class="ot">&lt;-</span>  <span class="fu">dataset_mnist</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>x_train <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>x</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>y_train <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>y</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>x_test <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>x</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>y_test <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>y</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A biblioteca <em>Tensorflow</em> é uma das ferramentas que compõem o estado da arte em <em>deep learning</em>, mas seu uso não é simples. O pacote <em>Keras</em> surgiu com o objetivo de facilitar o uso do <em>Tensorflow</em> e por isso essa associação (<em>Keras</em> + <em>Tensorflow</em>) é tão usada em projetos de aprendizagem de máquina e inteligência artificial. Com os pacotes em Linguagem <em>R</em>, há ainda outro benefício: as redes e todas as funções essenciais para avaliação de performance e tratamento inicial dos dados podem ser feitas, com <em>Keras</em> e <em>Tensorflow</em>, em sintaxe <em>R</em> e <code>tidy</code>, como mostra a uma rede em <em>Keras</em> no <em>R</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeira rede neural</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dense_model <span class="ot">&lt;-</span> <span class="fu">keras_model_sequential</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_embedding</span>(<span class="at">input_dim =</span> max_words <span class="sc">+</span> <span class="dv">1</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">output_dim =</span> <span class="dv">32</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">input_length =</span> max_length) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_global_average_pooling_1d</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">32</span>, <span class="at">activation =</span> <span class="st">"linear"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">32</span>, <span class="at">activation =</span> <span class="st">"sigmoid"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>dense_model</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sintaxe <code>tidy</code> é o termo utilizado pela comunidade da Linguagem <em>R</em> para os códigos escritos com apoio dos pacotes <code>tidyverse</code> e <code>dplyr</code>, que facilitam enormemente a manipulação de dados. Com os pacotes deste universo (<code>tidy</code>), as operações características de <em>data wrangling</em> tais como <code>select</code>, <code>slice</code>, <code>distinct</code>, <code>subset</code>, <code>mutate</code> e <code>rename</code> são feitas de maneira intuitiva e simples, com uso de um operador chamado pipe (<code>%\&gt;%</code>). Abaixo apresenta-se exemplos de operações realizadas com o pacote <code>dplyr</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dividindo por sentenças - Exemplo: Primeiro texto</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>texto_sentencas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">text =</span> dados<span class="sc">$</span>texto[<span class="dv">1</span>]) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(sentenca, text, <span class="at">token =</span> <span class="st">"sentences"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sentenca_id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sentenca_id, sentenca)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="organização-geral-do-projeto-em-linguagem-r-e-dos-notebooks-python" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="organização-geral-do-projeto-em-linguagem-r-e-dos-notebooks-python"><span class="header-section-number">2.3</span> Organização geral do projeto em linguagem <em>R</em> e dos <em>notebooks Python</em></h2>
+<p>O projeto em linguagem <em>R</em> foi estruturado pensando na utilização encadeada dos <em>scripts</em> e em boas práticas para organização e versionamento de código. Basicamente, a raiz do projeto contém as pastas principais, a saber: dados, imagens e <em>scripts</em>. Contém, também, um documento simples com informações básicas de <em>hardware</em>, versões dos <em>softwares</em> utilizados e montagem do ambiente. A pasta raiz do projeto pode ser vista na <a href="#fig-2">Figura&nbsp;<span>2.2</span></a>:</p>
+<div id="fig-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 2.2: Pasta raiz do projeto</figcaption><p></p>
+</figure>
+</div>
+<p>A pasta <em>scripts</em>, como se pode imaginar, contém extratos de códigos da iniciativa, além de um catálogo. O objetivo de catalogar os <em>scripts</em> é sugerir uma ordem de utilização e explicar, em linhas gerais, a tarefa a ser realizada por cada um. Os <em>scripts</em> são, em ordem alfabética: <code>limpeza</code>, <code>pacotes_funcoes</code>, <code>redes_neurais</code>. Todos estão devidamente comentados. A pasta dados contém as bases brutas e manipuladas em linguagem <em>R</em> (<code>xlsx</code> e <code>csv</code>), além dos arquivos em PDF para a leitura, insumo da iniciativa. Tal como na pasta <em>scripts</em>, existe um catálogo de tabelas, para que o usuário identifique tabelas brutas e manipuladas, bem como o conteúdo de cada um dos registros. A organização da pasta pode ser vista na <a href="#fig-3">Figura&nbsp;<span>2.3</span></a>:</p>
+<div id="fig-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 2.3: Organização pasta dados</figcaption><p></p>
+</figure>
+</div>
+<p>Pode-se notar que existem ainda duas pastas dentro da pasta dados: Petições e Acórdãos. Tais pastas organizam os arquivos em PDF e os dividem entre petições iniciais e acórdãos, os dois tipos de documentos jurídicos que são utilizados na iniciativa RAFA. Por questões de infraestrutura e base de dados, os documentos possuem, originalmente, nomes com estrutura do tipo <code>classe_numero_peticao_inicial_xxx.pdf</code> ou <code>classe_numero_acordao_xxx.pdf</code>, como a <a href="#fig-4">Figura&nbsp;<span>2.4</span></a> mostra:</p>
+<div id="fig-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 2.4: Nomes - peças</figcaption><p></p>
+</figure>
+</div>
+<p>Neste caso, a própria linguagem <em>R</em> associada à <em>regex</em> (expressões regulares) pode separar as petições e os acórdãos, caso os documentos estejam todos em uma mesma pasta. O <em>script</em> fluxo serve ao propósito de apresentar um exemplo de movimentação de arquivos em pastas usando linguagem <em>R</em>, via <em>regex</em>. Trata-se de uma automatização útil, que pode render a economia de algumas horas caso a base de arquivos seja grande.</p>
+<p>Por fim, o projeto <em>R</em> contém o arquivo do projeto em si (aquele que abre o projeto na IDE) e uma pasta de imagens, que pode ser utilizada pelo usuário para guardar imagens e outputs diversos. Além do projeto em <em>R</em>, que contém alguns dos módulos em teste da iniciativa RAFA, também serão disponibilizados <em>scripts</em> isolados para operações e tarefas específicas, tais como clusterização e similaridade entre textos, modelos outros de aprendizagem de máquina, <em>pos-tag</em> e análise sintática de sentenças. Tais <em>scripts</em> serão referenciados no corpo da presente documentação e serão organizados numa seção anexa ao texto. A intenção de disponibilizar exemplos de abordagens e ideias que não compõem oficialmente a iniciativa é clara e objetiva: o que não se mostrou bom para a RAFA pode resolver outro problema.</p>
+<p>Os <em>notebooks</em> em <em>Python</em> foram reduzidos a um só, que realiza as mesmas tarefas dos <em>scripts</em> em <em>R</em>. Neste caso, recomenda-se a utilização do <em>Google Colab</em> Pro, que disponibiliza RAM alta e TPUs para <em>deep learning</em>. A única diferença entre os <em>scripts</em> em <em>R</em> e <em>Python</em> se dá pela utilização do <em>Pytorch</em>. Enquanto em <em>R</em> a opção foi usar Tensorflow e <em>Keras</em>, em <em>Python</em> existem códigos em <em>Pytorch</em>. Isso torna a iniciativa mais geral e mais ampla, além de permitir a utilização de modelos mais avançados como o <em>BERT</em> e outros tipos de <em>transformers</em>. Como nos <em>scripts</em> em R, os códigos do notebook em <em>Python</em> estão comentados, como se pode ver na <a href="#fig-5">Figura&nbsp;<span>2.5</span></a> a seguir:</p>
+<div id="fig-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 2.5: Notebook Python</figcaption><p></p>
+</figure>
+</div>
+<p>Em resumo, serão entregues junto da documentação um projeto em <em>R</em>, um <em>notebook</em> em <em>Python</em> e um arquivo <em>zip</em> contendo <em>scripts</em> individuais para tarefas específicas, com códigos em <em>R</em> e <em>Python</em>. A documentação segue com as informações sobre entrada, leitura e limpeza dos dados, que é uma etapa importante da iniciativa. Neste contexto, são necessárias algumas explicações sobre as atividades de OCR (ocerização) e <em>pos-tag</em>.</p>
+
+
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p><font size="2.3"><em>Google Colab</em> disponível em: <a href="https://colab.research.google.com/">https://colab.research.google.com</a>.</font><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><font size="2.3">HVITFELDT, E.; SILGE, J. <strong>Supervised machine learning for text analysis in R</strong>. Chapman and Hall/CRC, 2021. Disponível em: <a href="https://smltar.com/" class="uri">https://smltar.com/</a>. Acesso em: 21 jul. 2022.</font><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><font size="2.3">Distribuição local Anaconda <em>Python.</em> Disponível em: <a href="https://www.anaconda.com/products/distribution" class="uri">https://www.anaconda.com/products/distribution</a>.</font><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./cap3.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Entrada, leitura e limpeza dos dados em PDF</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Supremo Tribunal Federal - STF</div>   
+  </div>
+</footer>
+
+
+
+</body></html>

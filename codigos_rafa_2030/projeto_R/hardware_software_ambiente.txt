@@ -1,0 +1,41 @@
+configurações de hardware, versão de softwares e montagem do ambiente:
+
+1) configuração da máquina utilizada - hardware:
+- processador intel i7 de nona geração
+- 32gb de memória ram
+- 1T de ssd + 1T de hd
+
+2) versões de software:
+- RStudio versão 1.4.1106
+- R versão 4.1.1
+- Anaconda versão 1.9.7
+
+3) preparação do ambiente:
+- para preparar o ambiente em python e conectá-lo ao R, sugere-se o seguinte passo a passo:
+
+#A.instalar Anaconda
+#B.criar um env e ativá-lo - chamei o meu de keras_env
+#C.na seta ao lado do nome do env, clicar em open terminal
+#D.no terminal, digitar conda install -c anaconda keras
+#E.quando aparecer a opção [y/n], escolher y - ss pacotes serão instalados
+#F.instalar o jupyter notebook dentro do env diretamente pelo anaconda
+#G.abrir um notebook para fazer testes - meu notebook se chama Teste_Keras_Tensorflow
+
+passo a passo até aqui disponível em:
+https://oindrilasen.com/2021/02/how-to-install-and-import-keras-in-anaconda-jupyter-notebooks/
+
+#H. instalar e carregar os pacotes keras e tensorflow em R
+#I. se tudo estiver funcionando bem, os códigos a seguir vão rodar sem erro - exemplos do dataset MNIST:
+
+mnist <- dataset_mnist()
+x_train <- mnist$train$x
+y_train <- mnist$train$y
+x_test <- mnist$test$x
+y_test <- mnist$test$y
+
+#J. o ambiente está, desta forma, pronto para a execução dos scripts
+
+4) observações sobre performance:
+- para processamento e limpeza dos textos em pdf, testes de performance indicam necessidade de 4gb de ram.
+- as redes neurais podem exigir bastante da ram, sugerem-se 4gb livres.
+- é possível paralelizar alguns laços de repetição para melhorar a performance, caso necessário. neste caso, indicam-se os pacotes purrr, foreach, doparallel em linguagem R. 

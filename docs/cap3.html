@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.35">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Entrada, leitura e limpeza dos dados em PDF</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./cap4.html" rel="next">
+<link href="./cap2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Entrada, leitura e limpeza dos dados em PDF</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./" class="sidebar-logo-link">
+      <img src="./logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/agenda2030rafa" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ambiente de desenvolvimento</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Entrada, leitura e limpeza dos dados em PDF</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metadados e manipulação do painel Agenda 2030 no STF</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Abordagens e estratégias de classificação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aplicativo</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Códigos</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#limpeza-dos-textos-jurídicos" id="toc-limpeza-dos-textos-jurídicos" class="nav-link active" data-scroll-target="#limpeza-dos-textos-jurídicos"> <span class="header-section-number">3.1</span> Limpeza dos textos jurídicos</a></li>
+  <li><a href="#tarefa-pos-tag" id="toc-tarefa-pos-tag" class="nav-link" data-scroll-target="#tarefa-pos-tag"> <span class="header-section-number">3.2</span> Tarefa <em>Pos Tag</em></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Entrada, leitura e limpeza dos dados em PDF</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Os principais dados de entrada da RAFA são textos de petições iniciais e acórdãos de processos do STF. Tratam-se de arquivos em formato .PDF que podem ser nato digitais ou imagens. Imagens são típicas em processos digitalizados e exigem um passo de OCR para obtenção do texto. Um exemplo de processo que precisa de OCR é dado pela <a href="#fig-6">Figura&nbsp;<span>3.1</span></a>:</p>
+<div id="fig-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.1: Exemplo de OCR – ADPF 56</figcaption><p></p>
+</figure>
+</div>
+<p>Nos casos onde o PDF contém fotos, imagens digitalizadas, manchas ou bordas é necessário utilizar pacotes de ocerização. Em linhas gerais, a atividade de OCR nada mais é do que extrair texto de imagens. Entre as iniciativas mais populares de OCR, destaca-se o <em>Tesseract</em>. Trata-se de um projeto desenvolvido em <em>C</em> e <em>C++</em> pela empresa HP e mantido temporariamente pelo <em>Google</em>, que está atualmente disponível no <em>Github</em>. Reúne redes neurais de arquiteturas LSTM com foco em reconhecimento de caracteres de texto em imagens de extensão <code>.PNG</code>, <code>.JPEG</code> e <code>.TIFF</code>. Pode ser utilizado em <em>Python</em> e <em>R</em>, como o <em>script</em> <code>tesseract_pt_R</code> mostra. Como exemplo, pode-se avaliar a imagem a seguir:</p>
+<div id="fig-7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-7.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.2: Exemplo de OCR</figcaption><p></p>
+</figure>
+</div>
+<p>Trata-se de uma carta de aceitação em um congresso. O PDF, que será disponibilizado no arquivo zip, não permite seleção do texto. É apenas uma imagem digitalizada. Ao executar parte dos códigos que estão presentes no <em>script</em> <code>tesseract_pt_R</code> temos o seguinte objeto em <em>R</em>:</p>
+<div id="fig-8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-8.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.3: Resultado OCR</figcaption><p></p>
+</figure>
+</div>
+<p>Como existem manchas no papel e sombras decorrentes da iluminação local, alguns caracteres não presentes no texto acabam surgindo na ocerização. Isso é normal. O objeto em <em>R</em>, no entanto, deixa claro que, assim como em um texto nato digital, o conjunto de caracteres obtido via OCR tem potencial para se tornar claro e totalmente legível por máquina, depois de alguns passos de limpeza. Para avaliar o desempenho do <em>Tesseract</em> em textos jurídicos, a figura seguinte mostra o texto resultante de OCR no processo ADPF 56 (referenciado na <a href="#fig-9">Figura&nbsp;<span>3.4</span></a>):</p>
+<div id="fig-9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-9.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.4: Resultado OCR – ADPF 56</figcaption><p></p>
+</figure>
+</div>
+<p>Que com algum esforço de limpeza, como retirada de espaços em branco desnecessários e remoção de caracteres especiais e inúteis, resulta no seguinte texto limpo:</p>
+<div id="fig-10" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-10.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.5: Limpeza de texto obtido via OCR</figcaption><p></p>
+</figure>
+</div>
+<p>Quando o arquivo em PDF é nato digital, o processo de leitura se torna mais fácil e rápido. Em linguagem <em>R</em>, por exemplo, existe o pacote <code>pdftools</code>, que executa muito bem a leitura. Em <em>Python</em>, é possível usar os pacotes <code>PyMuPDF</code> e <code>PyPDF2</code>, ambos de fácil instalação no ambiente virtual do <em>Google Colab</em>. Quando não há necessidade de ocerização, é possível fazer a leitura de muitos processos em poucos segundos.</p>
+<p>Quando os processos de entrada são lidos e seus textos estão contidos em objetos da linguagem <em>R</em> e <em>Python</em>, é possível iniciar a limpeza dos textos. A próxima seção se ocupará desta fundamental tarefa em processamento de linguagem natural.</p>
+<section id="limpeza-dos-textos-jurídicos" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="limpeza-dos-textos-jurídicos"><span class="header-section-number">3.1</span> Limpeza dos textos jurídicos</h2>
+<p>A limpeza dos textos é parte fundamental em qualquer fluxo de processamento de linguagem natural (NLP) e para textos técnicos adquire ainda maior importância. Dado que o processamento de textos por máquinas normalmente utiliza palavras como unidade básica, a etapa de limpeza serve ao propósito de deixar o texto mais denso e livre de palavras desnecessárias para o entendimento do objeto central, chamadas <em>stopwords</em> ou palavras de parada. Caracteres especiais como marcadores de pontuação, por exemplo, podem tornar os textos difíceis de processar e por isso também devem ser removidos. Computadores lidam melhor com números do que com <em>strings</em> e a etapa de limpeza também serve ao objetivo de tornar os textos menores, melhorando, assim, a capacidade de processamento dos modelos de NLP.</p>
+<p>A natureza dos textos alvo de limpeza faz toda diferença na própria limpeza, dado que as próprias <em>stopwords</em> podem mudar de área para área. Palavras de parada jurídicas, por exemplo, em nada se parecem com palavras inúteis de outros ramos, da mesma maneira que, em textos literários, a limpeza se torna ainda mais complicada, dado que os autores usam recursos de estilo não necessários em textos técnicos. Desta forma, é importante frisar que cada problema de NLP exige uma limpeza de textos específica. Em programação, tarefas muito específicas normalmente exigem emprego simultâneo de pacotes e funções customizadas. Pacotes são amplos conjuntos de funções, e no caso de NLP, devem ser complementados com funções criadas especificamente para o problema em tela, como no caso da limpeza de textos. Em linguagem <em>R</em>, há um enorme ecossistema de pacotes para manipulação/limpeza de textos, como o <code>stringr</code>, <code>stringi</code>, família de pacotes <code>quanteda</code>, <code>text</code>, <code>tidytext</code>, <code>udpipe</code>, entre outros. Na iniciativa RAFA, especificamente no projeto <em>R</em>, o <em>script</em> <code>funcoes</code> contém ferramentas customizadas de limpeza e organização dos textos e o <em>script</em> <code>limpeza</code> executa, efetivamente, a tarefa de limpar as peças jurídicas. Em <em>Python</em>, a etapa de limpeza é feita ao longo do <em>notebook</em>, através de <em>list comprehensions</em> e manipulação de dicionários/<em>sets</em>. Em ambas as linguagens, os códigos de limpeza de textos fazem uso intenso de <em>regex</em> (expressões regulares) e <em>pos tag</em>, que por ser uma atividade dotada de significado próprio em NLP, será melhor explicada em seções subsequentes.</p>
+<p>A etapa de limpeza dos textos é tão importante que se converte em uma <em>feature</em> dos problemas em si, em alguns fluxos de NLP. Isso significa que, dentro do mesmo problema, a limpeza pode mudar de acordo com a tarefa específica a ser realizada. Na iniciativa RAFA existem limpezas diferentes para cada algoritmo/tarefa, resumidas na tabela abaixo:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<caption>Tabela 1 – Limpeza x Algoritmos/Tarefas</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Limpeza </th>
+   <th style="text-align:left;"> Tarefa </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Texto bruto – sem limpeza </td>
+   <td style="text-align:left;"> Contagem de palavras </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Texto limpo – remoção stopwords e caracteres especiais </td>
+   <td style="text-align:left;"> Algoritmos da família SVM e Naive Bayes, similaridade e clusterização </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Texto limpo – remoção stopwords e caracteres especiais associada à atividade de pos tag </td>
+   <td style="text-align:left;"> Redes neurais e algoritmos CatBoost </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><br></p>
+<p>Um exemplo de limpeza pode ser visto na figura a seguir, onde se nota que o texto se torna menor e mais denso:</p>
+<div id="fig-11" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-11.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.6: Texto limpo</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="tarefa-pos-tag" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tarefa-pos-tag"><span class="header-section-number">3.2</span> Tarefa <em>Pos Tag</em></h2>
+<p>A atividade de <em>pos tag</em>, do inglês <em>part of speech tagging</em>, é uma espécie de classificação gramatical de cada palavra em um texto. Trata-se de uma tarefa que pode ser intermediária, como no caso da iniciativa RAFA, ou a própria tarefa de interesse em fluxos de NLP. As etiquetas (<em>tags</em>) mais comuns na maioria dos idiomas são <em>ADJ</em> (adjetivo), <em>ADV</em> (advérbio), <em>NOUN</em> (substantivos), <em>PROPN</em> (nomes próprios) e <em>VERB</em> (verbos). Uma lista exaustiva das <em>tags</em> disponíveis no pacote <code>spacy</code> da linguagem <em>Python</em> está disponível neste <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/05-Text-Analysis/Multilingual/Portuguese/03-POS-Keywords-Portuguese.html#get-sentences-with-keyword"><em>link</em></a>. A figura a seguir mostra um ajuste <em>pos tag</em> feito em linguagem <em>R</em> na frase “<em>Inteligência artificial do STF aplicada à Agenda 2030</em>”:</p>
+<div id="fig-12" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-12.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.7: Pos Tag em Linguagem R</figcaption><p></p>
+</figure>
+</div>
+<p>Pode-se notar que a atividade <em>pos tag</em> etiqueta corretamente os termos da frase e há imenso potencial de utilização de tais etiquetas em outras tarefas de NLP, especificamente em limpeza de textos. Considerando que os textos devem ser densos e que remover partes desnecessárias é fundamental para diminuir a complexidade computacional do processamento, é razoável pensar em uma camada de <em>pos tag</em> posterior à remoção de caracteres especiais, mantendo apenas palavras com <em>tags</em> de verbo e nomes, por exemplo. A <a href="#fig-13">Figura&nbsp;<span>3.8</span></a> mostra exemplos do tamanho de um texto bruto e seu correspondente limpo com <em>pos tag</em> em linguagem <em>Python</em>:</p>
+<div id="fig-13" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/fig-13.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figura 3.8: Tamanho em caracteres – Texto limpo e com pos tag</figcaption><p></p>
+</figure>
+</div>
+<p>Importante notar a significativa diferença em número de caracteres. Isso pode ser decisivo para melhorar a etapa de pré-processamento dos textos e <em>embedding</em>, tarefa que será melhor explicada em seções subsequentes. Utilizando linguagem <em>R</em>, é possível fazer <em>pos tag</em> em português com o pacote <code>udpipe</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, desde que se faça o <em>download</em> do modelo “<code>portuguese-gsd</code>”. Este extrato de código está disponível no arquivo <em>zip</em>. Em <em>Python</em>, é possível associar o pacote <code>spacy</code> e o pipeline <code>pt_core_new_lg</code> disponível no repositório <em>HuggingFace</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Os comandos para desempenhar esta atividade em <em>Python</em> estão no <em>notebook</em> de referência.</p>
+
+
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p><font size="2.3">Maiores informações disponíveis em: <a href="https://ladal.edu.au/tagging.html#Dependency_Parsing_Using_UDPipe" class="uri">https://ladal.edu.au/tagging.html#Dependency_Parsing_Using_UDPipe</a>.</font><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><font size="2.3"><em>HuggingFace.</em> Disponível em: <a href="https://huggingface.co/spacy/pt_core_news_lg/tree/main" class="uri">https://huggingface.co/spacy/pt_core_news_lg/tree/main</a>.</font><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./cap2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ambiente de desenvolvimento</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./cap4.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metadados e manipulação do painel Agenda 2030 no STF</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Supremo Tribunal Federal - STF</div>   
+  </div>
+</footer>
+
+
+
+</body></html>

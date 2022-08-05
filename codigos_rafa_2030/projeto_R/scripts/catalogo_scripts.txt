@@ -1,0 +1,8 @@
+ordem sugerida para utilização dos scripts:
+
+1) pacotes_funcoes - indica quais pacotes foram utilizados para desenvolvimento e reúne funções de interesse que serão utilizadas ao longo do desenvolvimento.
+
+2) limpeza - extrai, limpa e exporta os textos das peças, que inicialmente chegam em pdf. organiza a base de dados e a prepara para visualização/modelos.
+
+3) redes neurais - implementação das redes neurais utilizadas nos modelos. treinamento, validação e predição de resultados. script integralmente dedicado à aprendizagem de máquina.
+
