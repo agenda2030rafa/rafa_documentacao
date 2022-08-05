@@ -2,8 +2,8 @@
 
 Os scripts e arquivos descritos na documentação estão disponíveis nos seguintes `links`:
 
--   [Notebook python](xx)
+-   [Notebook python](https://github.com/agenda2030rafa/rafa_documentacao/blob/main/codigos_rafa_2030/notebook_python/notebook_python.ipynb)
 
--   [Projeto R](xx)
+-   [Projeto R](https://github.com/agenda2030rafa/rafa_documentacao/tree/main/codigos_rafa_2030/projeto_R)
 
--   [Scripts doc](xx)
+-   [Scripts doc](https://github.com/agenda2030rafa/rafa_documentacao/tree/main/codigos_rafa_2030/scripts_doc)
